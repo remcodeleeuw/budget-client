@@ -13,6 +13,7 @@ import Login from './features/auth/containers/Login'
 import Register from './features/auth/containers/Register'
 import NewTrip from './features/trips/containers/NewTrip'
 import Destination from './features/destination/container/Destination'
+import NewSpending from './features/spendings/container/NewSpending'
 
 const theme = {
   background: '#212121',
@@ -98,7 +99,8 @@ function App () {
 
           <Route exact path='/trip' component={Trip} />
           <Route exact path='/trip/new' component={NewTrip} />
-          <Route exact path='/destination/:id' component={Destination} />
+          <Route exact path='/trip/destination/:id' component={Destination} />
+          <Route exact path='/trip/destination/spending/new' component={NewSpending} />
         </AppContext.Provider>
 
       </div>
