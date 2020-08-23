@@ -20,7 +20,7 @@ const dev = {
   },
   apiGateway: {
     REGION: 'eu-west-1',
-    URL: 'https://api.mytravelwallet.nl/dev'
+    URL: 'https://hnh38rw75m.execute-api.eu-west-1.amazonaws.com/dev'
   }
 }
 
@@ -33,7 +33,7 @@ const prod = {
   },
   apiGateway: {
     REGION: 'eu-west-1',
-    URL: 'https://api.mytravelwallet.nl/dev'
+    URL: 'https://hnh38rw75m.execute-api.eu-west-1.amazonaws.com/dev'
   }
 }
 
