@@ -1,35 +1,35 @@
-import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React, { useState } from 'react'
+import { Link, useHistory } from 'react-router-dom'
 
-import { useAppContext } from "../../../context";
+import { useAppContext } from '../../../context'
 
-import { StyledForm } from '../../../styles/form/StyledForm';
-import { StyledFormButton } from '../../../styles/form/StyledFormButton';
-import { StyledFormInput } from '../../../styles/form/StyledFormInput';
-import { StyledError } from "../../../styles/errors/StyledError"
-import { Auth } from "aws-amplify";
+import { StyledForm } from '../../../styles/form/StyledForm'
+import { StyledFormButton } from '../../../styles/form/StyledFormButton'
+import { StyledFormInput } from '../../../styles/form/StyledFormInput'
+import { StyledError } from '../../../styles/errors/StyledError'
+import { Auth } from 'aws-amplify'
 
 import { StyledAuthPageContainer } from '../../../styles/StyledPageContainer'
-import { useFormFields } from '../../../hooks/fieldsHook';
-import Loading from '../../../ui/Loading';
+import { useFormFields } from '../../../hooks/fieldsHook'
+import Loading from '../../../ui/Loading'
 
-function Login() {
-  const history = useHistory();
-  const { isAuthenticated, userHasAuthenticated } = useAppContext();
+function Login () {
+  const history = useHistory()
+  const { userHasAuthenticated } = useAppContext()
   const [fields, handleFieldChange] = useFormFields({
-    email: "",
-    password: ""
-  });
-  const [errors, setErrors] = useState();
-  const [isLoading, setIsLoading] = useState(false);
+    email: '',
+    password: ''
+  })
+  const [errors, setErrors] = useState()
+  const [isLoading, setIsLoading] = useState(false)
 
-  async function handleSubmit(event) {
-    event.preventDefault();
+  async function handleSubmit (event) {
+    event.preventDefault()
     setIsLoading(true)
     try {
-      await Auth.signIn(fields.email, fields.password);
-      userHasAuthenticated(true);
-      history.push("/trip")
+      await Auth.signIn(fields.email, fields.password)
+      userHasAuthenticated(true)
+      history.push('/trip')
     } catch (error) {
       console.log(error.message)
       setErrors(error.message)
@@ -37,19 +37,19 @@ function Login() {
     setIsLoading(false)
   }
 
-  function renderFormComponent() {
+  function renderFormComponent () {
     return (
       <>
         <StyledFormInput
-          type="text"
-          placeholder={"Je email"}
-          name="email"
+          type='text'
+          placeholder='Je email'
+          name='email'
           onChange={handleFieldChange}
         />
         <StyledFormInput
-          type="password"
-          placeholder={"Je wachtwoord"}
-          name="password"
+          type='password'
+          placeholder='Je wachtwoord'
+          name='password'
           onChange={handleFieldChange}
         />
         {errors ? <StyledError>
@@ -62,7 +62,7 @@ function Login() {
 
   return (
     <StyledAuthPageContainer>
-      <StyledForm action="" onSubmit={handleSubmit}>
+      <StyledForm action='' onSubmit={handleSubmit}>
         <h1>Login op je account</h1>
         <Link to='/register'>Heb je nog geen account?</Link>
         {isLoading ? <Loading /> : renderFormComponent()}

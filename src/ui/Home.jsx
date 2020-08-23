@@ -3,7 +3,7 @@ import React from 'react'
 import { StyledHeroHomepage } from '../styles/StyledHero'
 function Home () {
   return (
-    <div className={'home'}>
+    <div className='home'>
       <StyledHeroHomepage />
     </div>
   )

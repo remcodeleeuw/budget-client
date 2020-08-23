@@ -1,10 +1,10 @@
-import React from 'react';
-import { StyledError, StyledPageError, StyledFormError } from '../styles/errors/StyledError';
+import React from 'react'
+import { StyledPageError, StyledFormError } from '../styles/errors/StyledError'
 
-function ErrorMessage({ message, form }) {
+function ErrorMessage ({ message, form }) {
   console.log(message)
 
-  function renderPageError() {
+  function renderPageError () {
     return (
       <StyledPageError>
         {message}
@@ -12,7 +12,7 @@ function ErrorMessage({ message, form }) {
     )
   }
 
-  function renderFormError() {
+  function renderFormError () {
     return (
       <StyledFormError>
         {message}

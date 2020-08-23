@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const StyledForm = styled.form`
     /* background: ${props => props.theme.teal700}; */

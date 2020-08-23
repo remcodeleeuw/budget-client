@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const StyledHeader = styled.header.attrs(props => ({
-  className: "flex flex-row justify-between"
+  className: 'flex flex-row justify-between'
 }))`
   background: ${props => props.theme.background};
   box-sizing: border-box;
@@ -34,6 +34,6 @@ export const StyledHeader = styled.header.attrs(props => ({
     &-link {
       color: #fff;
       text-decoration: none;
-    }
+  }
 }
 `

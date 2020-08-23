@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const StyledTableEntry = styled.div`
-  background: ${ props => props.theme.background};
+  background: ${props => props.theme.background};
   border: 1px solid ${props => props.theme.teal300};
   padding: 8px 32px;
   margin-bottom: 32px;

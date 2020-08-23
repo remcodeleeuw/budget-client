@@ -1,4 +1,4 @@
- import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const StyledFormInput = styled.input`
   border: 1px solid ${props => props.theme.teal500};

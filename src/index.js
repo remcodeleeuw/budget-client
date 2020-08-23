@@ -1,14 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
-import { Amplify } from 'aws-amplify';
+import { Amplify } from 'aws-amplify'
 
 import App from './App'
 import * as serviceWorker from './serviceWorker'
 
-import config from './config';
+import config from './config'
 
-import "./tailwind.output.css"
+import './tailwind.output.css'
 
 Amplify.configure({
   Auth: {
@@ -21,13 +21,13 @@ Amplify.configure({
   API: {
     endpoints: [
       {
-        name: "trip",
+        name: 'trip',
         endpoint: config.apiGateway.URL,
         region: config.apiGateway.REGION
-      },
+      }
     ]
   }
-});
+})
 
 console.log(config.apiGateway.URL)
 

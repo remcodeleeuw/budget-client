@@ -1,15 +1,15 @@
-import { useState } from "react";
+import { useState } from 'react'
 
-export function useFormFields(initialState) {
-  const [fields, setValues] = useState(initialState);
+export function useFormFields (initialState) {
+  const [fields, setValues] = useState(initialState)
 
   return [
     fields,
-    function({target}) {
+    function ({ target }) {
       setValues({
         ...fields,
         [target.name]: target.value
-      });
+      })
     }
-  ];
+  ]
 }

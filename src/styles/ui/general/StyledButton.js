@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const StyledButton = styled.a`
   background: #fff;
@@ -14,7 +14,7 @@ export const CreateNewButton = styled(StyledButton)`
   right: 5%;
   font-size: 1.6rem;
   :hover {
-    background: ${ props => props.theme.background};
+    background: ${props => props.theme.background};
     border: 1px solid ${props => props.theme.teal600};
     color: ${props => props.theme.teal600};
   }
