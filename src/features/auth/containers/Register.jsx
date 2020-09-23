@@ -5,7 +5,6 @@ import { StyledForm } from '../../../styles/form/StyledForm'
 import { StyledFormButton } from '../../../styles/form/StyledFormButton'
 import { StyledFormInput } from '../../../styles/form/StyledFormInput'
 
-import { StyledAuthPageContainer } from '../../../styles/StyledPageContainer'
 import { useAppContext } from '../../../context'
 import { useFormFields } from '../../../hooks/fieldsHook'
 import { Auth } from 'aws-amplify'
@@ -95,9 +94,9 @@ function Register () {
   }
 
   return (
-    <StyledAuthPageContainer>
+    <>
       {newUser === null ? renderForm() : renderConfirmationForm()}
-    </StyledAuthPageContainer>
+    </>
   )
 }
 

@@ -7,30 +7,33 @@ import { AppContext } from './context'
 
 // Views
 import Home from './ui/Home'
-import Header from './ui/Header'
 import Trip from './features/trips/containers/Trip'
 import Login from './features/auth/containers/Login'
 import Register from './features/auth/containers/Register'
 import NewTrip from './features/trips/containers/NewTrip'
 import Destination from './features/destination/container/Destination'
 import NewSpending from './features/spendings/container/NewSpending'
+import Sidebar from './ui/Sidebar'
+
+import "./App.css"
+import { StyledPageContainer } from './styles/StyledPageContainer'
 
 const theme = {
-  background: '#212121',
+  background: '#F5F5F5',
   white: '#FFFFFF',
-  teal100: '#E6FFFA',
-  teal200: '#B2F5EA',
-  teal300: '#81E6D9',
-  teal400: '#4FD1C5',
-  teal500: '#38B2AC',
-  teal600: '#319795',
-  teal700: '#2C7A7B',
-  teal800: '#285E61',
-  teal900: '#234E52',
+  teal100: '#B2DFDB',
+  teal200: '#80CBC4',
+  teal300: '#4DB6AC',
+  teal400: '#26A69A',
+  teal500: '#009688',
+  teal600: '#00897B',
+  teal700: '#00796B',
+  teal800: '#00695C',
+  teal900: '#004D40',
   gray700: '#616161',
   gray800: '#424242',
   maxWidth: '1280px',
-  bs: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);'
+  bs: '0 3px 6px rgba(0,0,0,0.16), 0 1px 3px rgba(0,0,0,0.23);'
 }
 
 const GlobalStyle = createGlobalStyle`
@@ -55,17 +58,20 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-function App () {
+function App() {
   const [isAuthenticated, userHasAuthenticated] = useState(false)
   // eslint-disable-next-line
   const [isAuthenticating, setIsAuthenticating] = useState(true)
-  const [selectedTrip, setSelectedTrip] = useState()
+  const [selectedTrip, setSelectedTrip] = useState({
+    tripId: "6a082330-eae5-11ea-a8fa-f74db2899b47",
+    destination: 'china'
+  })
 
   useEffect(() => {
     onLoad()
   }, [])
 
-  async function onLoad () {
+  async function onLoad() {
     try {
       await Auth.currentSession()
       userHasAuthenticated(true)
@@ -82,26 +88,30 @@ function App () {
       <GlobalStyle />
 
       <div className='App'>
-        <AppContext.Provider value={
-          {
-            isAuthenticated,
-            userHasAuthenticated,
-            selectedTrip,
-            setSelectedTrip
+        <StyledPageContainer>
+
+          <AppContext.Provider value={
+            {
+              isAuthenticated,
+              userHasAuthenticated,
+              selectedTrip,
+              setSelectedTrip
+            }
           }
-        }
-        >
-          <Header />
-          <Route exact path='/' component={Home} />
+          >
+            <Sidebar />
+            <div className="mt-32">
+              <Route exact path='/' component={Home} />
+              <Route exact path='/login' component={Login} />
+              <Route exact path='/register' component={Register} />
+              <Route exact path='/trip' component={Trip} />
+              <Route exact path='/trip/new' component={NewTrip} />
+              <Route exact path='/trip/destination/:id' component={Destination} />
+              <Route exact path='/trip/destination/spending/new' component={NewSpending} />
+            </div>
 
-          <Route exact path='/login' component={Login} />
-          <Route exact path='/register' component={Register} />
-
-          <Route exact path='/trip' component={Trip} />
-          <Route exact path='/trip/new' component={NewTrip} />
-          <Route exact path='/trip/destination/:id' component={Destination} />
-          <Route exact path='/trip/destination/spending/new' component={NewSpending} />
-        </AppContext.Provider>
+          </AppContext.Provider>
+        </StyledPageContainer>
 
       </div>
     </ThemeProvider>

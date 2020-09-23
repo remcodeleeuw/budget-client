@@ -5,9 +5,13 @@ const local = {
     APP_CLIENT_ID: '93jah2t890u3d3k9m9dm6vced',
     IDENTITY_POOL_ID: 'eu-west-1:6fbab3fa-4964-4312-a5ca-442ed7780267'
   },
-  apiGateway: {
+  tripGateway: {
     REGION: 'eu-west-1',
     URL: 'http://localhost:5000'
+  },
+  spendingGateway: {
+    REGION: 'eu-west-1',
+    URL: 'http://localhost:5001'
   }
 }
 

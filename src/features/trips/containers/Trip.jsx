@@ -4,15 +4,14 @@ import { API } from 'aws-amplify'
 
 import { useAppContext } from '../../../context'
 
-import { StyledPageContainer } from '../../../styles/StyledPageContainer'
 import { StyledTable } from '../../../styles/ui/table/StyledTable'
 import { CreateNewButton } from '../../../styles/ui/general/StyledButton'
-import { StyledDefaultHero } from '../../../styles/StyledHero'
 
 // Components
 import TripEntry from '../components/TripEntry'
 import Loading from '../../../ui/Loading'
 import ErrorMessage from '../../../ui/Error'
+import { StyledTableHeader } from '../../../styles/ui/table/StyledTableHeader'
 
 function Trip() {
   const { isAuthenticated } = useAppContext()
@@ -74,9 +73,12 @@ function Trip() {
   function renderTable() {
     return (
       <StyledTable>
+        <StyledTableHeader>Je gemaakte reizen</StyledTableHeader>
         {trips.map(trip => {
           return (
-            <TripEntry key={trip.tripId} trip={trip} handleDelete={handleDelete} handleSelectedTrip={handleSelectedTrip} />
+            <>
+              <TripEntry key={trip.tripId} trip={trip} handleDelete={handleDelete} handleSelectedTrip={handleSelectedTrip} />
+            </>
           )
         })}
       </StyledTable>
@@ -84,10 +86,7 @@ function Trip() {
   }
 
   return (
-    <StyledPageContainer>
-      <StyledDefaultHero />
-      <div className='mt-64'>
-        <h1>Je gemaakte reizen</h1>
+      <>
         {isLoading ? <Loading /> : null}
         {error ? <ErrorMessage message={error} /> : null}
         {!isLoading && trips ? renderTable() : null}
@@ -96,9 +95,7 @@ function Trip() {
             Maak nieuwe trip
           </Link>
         </CreateNewButton>
-      </div>
-
-    </StyledPageContainer>
+      </>
   )
 }
 

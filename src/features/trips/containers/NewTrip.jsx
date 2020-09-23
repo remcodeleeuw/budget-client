@@ -6,7 +6,6 @@ import { API } from 'aws-amplify'
 import { useFormFields } from '../../../hooks/fieldsHook'
 
 // Styles
-import { StyledAuthPageContainer } from '../../../styles/StyledPageContainer'
 import { StyledForm } from '../../../styles/form/StyledForm'
 import { StyledFormInput } from '../../../styles/form/StyledFormInput'
 import { StyledFormButton } from '../../../styles/form/StyledFormButton'
@@ -54,11 +53,11 @@ function NewTrip () {
     )
   }
   return (
-    <StyledAuthPageContainer>
+    <>
       <StyledForm action='' onSubmit={handleSubmit}>
         {isLoading ? <Loading /> : renderFormComponents()}
       </StyledForm>
-    </StyledAuthPageContainer>
+    </>
 
   )
 }

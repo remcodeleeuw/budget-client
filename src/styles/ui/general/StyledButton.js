@@ -1,24 +1,44 @@
 import styled from 'styled-components'
 
-const StyledButton = styled.a`
-  background: #fff;
-  border: 1px solid #fff;;
+const StyledButton = styled.button`
   padding: 8px 16px;
+  padding: 8px 32px;
+  border-radius: 16px;
+  &:focus {
+    outline: none;
+  }
+    
+  &:hover {
+    cursor: pointer;
+  }
 `
 
-export const CreateNewButton = styled(StyledButton)`
-  background: transparent;
+export const PrimaryButton = styled(StyledButton)`
+  background: ${props => props.theme.teal600};
   color: #fff;
+
+  &:hover {
+    background: ${props => props.theme.teal300};;
+    color: ${props => props.theme.teal600};
+  }
+
+`
+
+export const DangerButton = styled(StyledButton)`
+  background: #d32f2f;
+  color: #fff;
+
+
+`
+export const CreateNewButton = styled(PrimaryButton)`
   position: absolute;
   bottom: 5%;
   right: 5%;
-  font-size: 1.6rem;
-  :hover {
-    background: ${props => props.theme.background};
-    border: 1px solid ${props => props.theme.teal600};
-    color: ${props => props.theme.teal600};
-  }
-  a {
+  padding: 16px 32px;
+
+  & a {
     color: #fff;
   }
+
+
 `

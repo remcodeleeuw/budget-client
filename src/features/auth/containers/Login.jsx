@@ -9,7 +9,6 @@ import { StyledFormInput } from '../../../styles/form/StyledFormInput'
 import { StyledError } from '../../../styles/errors/StyledError'
 import { Auth } from 'aws-amplify'
 
-import { StyledAuthPageContainer } from '../../../styles/StyledPageContainer'
 import { useFormFields } from '../../../hooks/fieldsHook'
 import Loading from '../../../ui/Loading'
 
@@ -61,13 +60,13 @@ function Login () {
   }
 
   return (
-    <StyledAuthPageContainer>
+    <>
       <StyledForm action='' onSubmit={handleSubmit}>
         <h1>Login op je account</h1>
         <Link to='/register'>Heb je nog geen account?</Link>
         {isLoading ? <Loading /> : renderFormComponent()}
       </StyledForm>
-    </StyledAuthPageContainer>
+    </>
   )
 }
 

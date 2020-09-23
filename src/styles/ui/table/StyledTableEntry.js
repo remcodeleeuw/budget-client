@@ -1,19 +1,28 @@
 import styled from 'styled-components'
 
 export const StyledTableEntry = styled.div`
-  background: ${props => props.theme.background};
-  border: 1px solid ${props => props.theme.teal300};
-  padding: 8px 32px;
+  background: #fff;
+  box-shadow: ${props => props.theme.bs};
+  border-radius: 8px;
+  padding: 16px 32px;
   margin-bottom: 32px;
   display: flex;
   justify-content: space-between;
+  transition: all .3s;
 
-  a {
-    color: ${props => props.theme.white};
+  a, span {
+    align-self: center;
+    color: ${props => props.theme.gray900};
     text-transform: capitalize
   }
   &:hover {
-    border: 1px solid ${props => props.theme.white};
+    background: ${props => props.theme.teal600};
     cursor: pointer;
+    transform: scale(1.05);
+
+    a, span {
+      color: #fff;
+    }
+
   }
 `

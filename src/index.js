@@ -22,14 +22,16 @@ Amplify.configure({
     endpoints: [
       {
         name: 'trip',
-        endpoint: config.apiGateway.URL,
-        region: config.apiGateway.REGION
+        endpoint: config.tripGateway.URL,
+        region: config.tripGateway.REGION
+      }, {
+        name: 'spending',
+        endpoint: config.spendingGateway.URL,
+        region: config.spendingGateway.REGION
       }
     ]
   }
 })
-
-console.log(config.apiGateway.URL)
 
 ReactDOM.render(
   <BrowserRouter>
